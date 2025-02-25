@@ -1,3 +1,5 @@
+# Kubernetes 1st assignment
+
 # Create nginx pod
 
 ```sh
@@ -31,7 +33,7 @@ kubectl apply -f nginx-pod.yaml
 pod/nginx-pod created
 ```
 
-![alt text](image.png)
+![alt text](./images/image.png)
 
 ---
 
@@ -50,7 +52,7 @@ mysql       1/1     Running   2 (4d23h ago)   5d21h   192.168.210.198   kind-cal
 nginx-pod   1/1     Running   0               2m50s   192.168.52.68     kind-calico-worker2   <none>           <none>
 ```
 
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 ---
 
@@ -418,7 +420,7 @@ myapp-deployment-b8fdf6788    0         0         0       8m20s   myapp        n
 myapp-deployment-d4cf55cfd    0         0         0       33m     myapp        nginx        app=myapp-deployment,pod-template-hash=d4cf55cfd
 ```
 
-## ![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 # Change the replica to 1 and observe the pods
 
@@ -763,4 +765,5 @@ myapp-deployment-b8fdf6788    0         0         0       26m   myapp        ngi
 myapp-deployment-d4cf55cfd    0         0         0       51m   myapp        nginx        app=myapp-deployment,pod-template-hash=d4cf55cfd
 
 ```
+
 # k8s-assignments
