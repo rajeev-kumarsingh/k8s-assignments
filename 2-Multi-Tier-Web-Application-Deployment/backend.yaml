@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app
+  labels:
+    app: backend-node18-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-node18-app
+  template:
+    metadata:
+      labels:
+        app: backend-node18-app
+    spec:
+      containers:
+      - name: node18-container
+        image: node:18
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

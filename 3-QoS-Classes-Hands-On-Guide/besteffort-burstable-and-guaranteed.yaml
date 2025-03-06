@@ -1,0 +1,64 @@
+# BestEffort QoS Class POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: besteffort-qos
+  labels:
+    app: besteffort-qos-app
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+    env:
+    - name: QOS_CLASS
+      value: "besteffort"
+---
+# Burstable QoS Class POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: burstable-qos
+  labels:
+    app: burstable-qos-app
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+    - containerPort: 80
+    env:
+    - name: QOS_CLASS
+      value: "burstable"
+---
+# Guaranteed QoS Class POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: guaranteed-qos
+  labels:
+    app: guaranteed-qos-app
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "500m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+    - containerPort: 80
+    env:
+    - name: QOS_CLASS
+      value: "guaranteed"
